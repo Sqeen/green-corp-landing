@@ -3,6 +3,10 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1;
 }
 
 body {
@@ -36,34 +40,41 @@ body {
     cursor: pointer;
     box-shadow: 0 16px 36px rgb(52 213 68 / 22%);
     padding: 15px;
-    transition: background-color 0.3s ease-in;
   }
 
   button:hover {
       background-color: #f6980c;
-      box-shadow: 0 16px 38px rgba(246 152 12 / 20%);
+      box-shadow: 0 16px 36px rgba(246 152 12 / 20%);
+      transition: background-color 0.3s ease-in;
   }
 
   .about {
       display: flex;
       justify-content: space-around;
       align-items: center;
+      flex-shrink: 1;
       padding-top: 115px;
       padding-bottom: 115px;
       background: url('img/back.png') no-repeat;
       background-position: center;
       background-size: cover;
   }
-
   .about__image {
     width: 500px;
   }
-
-.about_sun-image {
+  .scaler:hover {
+    transform: scale(1.5);
+  }
+  .scaler {
+    width: 100px;
+    height: 100px;
+    transition: transform 1.0s;
+  }
+.about__sun-image {
     height: 100px;
     width: 100px;
     position: absolute;
-    animation: rotation 10s linear infinite;
+    animation: rotation 10s infinite linear;
 }
 .about h1 {
     font-size: 70px;
@@ -92,15 +103,13 @@ body {
 }
 
 .form {
-    display: flex;
     background-color: #1D263A;
     color: #fff;
     padding-top: 115px;
     padding-bottom: 115px;
     text-align: center;
-    align-items: center;
+    display: flex;
     justify-content: center;
-
 }
 .form form{
     display: grid;
@@ -125,19 +134,20 @@ body {
 .form label {
     font-size: 18px;
     font-weight: 600px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 .form select, .form input {
+    border: none;
+    border-radius: 15px;
+    padding: 0 20px;
+    outline: none;
     font-size: 18px;
     color: #213053;
     height: 60px;
-    padding: 0px 20px;
-    border: none;
-    border-radius: 15px;
 }
 .form__submit {
     font-size: 18px;
-    font-weight: 600px;
+    font-weight: 600;
     margin-top: 40px;
 }
 
@@ -151,22 +161,24 @@ input {
 
 footer {
     padding: 90px 20px;
+    font-size: 16px;
+    font-weight: 600;
 }
 .footer__container {
     display: flex;
     justify-content: center;
 }
 .footer__copyright {
-    padding-top: 40px;
+    margin-top: 40px;
     text-align: center;
     opacity: 0.5;
 }
 .footer__group {
     padding-right: 80px;
 }
-.footer__group h3 {
-    font-size: 16px;
+footer h3 {
     opacity: 0.7;
+    font-size: 16px;
     padding-bottom: 30px;
 }
 .footer__links {
@@ -174,7 +186,7 @@ footer {
     flex-direction: column;
 }
 .footer__links a {
-    padding-bottom: 15px;
+    margin-bottom: 15px;
 }
 
 @keyframes rotation {
@@ -186,3 +198,73 @@ footer {
         transform: rotate(360deg);
     }
 }
+
+@media (max-width: 720px) {
+    body {
+      background-color: white;
+    }
+    header, .about, .form, footer {
+        padding: 50px 10px 50px 10px;
+    }
+    header a {
+        margin-right: 10px;
+    }
+    .header__logo {
+        height: 20px;
+      }
+    header h1, .about h1, .form h1 {
+        font-size: 36px;
+        line-height: 40px;
+    }
+    .about__image {
+        width: 280px;
+    }
+    .about__info {
+        padding-bottom: 20px;
+        text-align: center;
+    }
+    .about__sun-image {
+        width: 75px;
+        height: 75px;
+    }
+    .about, .footer__container {
+        flex-wrap: wrap;
+    }
+    .footer__container {
+        text-align: center;
+    }
+    .footer__group {
+        padding-right: 0px;
+    }
+  }
+
+  @media (min-width: 720px) and (max-width: 1200px) {
+    body {
+        background-color: white;
+      }
+      header, .about, .form, footer {
+          padding-left: 20px;
+          padding-right: 20px;
+      }
+      header h1, .about h1, .form h1 {
+          font-size: 36px;
+          line-height: 40px;
+      }
+      .about__image {
+          width: 370px;
+      }
+      .about__sun-image {
+          width: 90px;
+          height: 90px;
+      }
+      .about__info {
+        padding-bottom: 20px;
+        text-align: center;
+    }
+      .about, .footer__container {
+          flex-wrap: wrap;
+      }
+      .footer__group {
+          padding-right: 40px;
+      }      
+  }
