@@ -188,6 +188,10 @@ footer h3 {
 .footer__links a {
     margin-bottom: 15px;
 }
+#like_button_container {
+    margin-top: 20px;
+    text-align: center;
+}
 
 @keyframes rotation {
     0%{
